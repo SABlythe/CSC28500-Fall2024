@@ -7,7 +7,7 @@ int main(int argc, char **argv)
 {
   unsigned int number, pos;
 
-  cout << "Enter number to pick bit from: " ;
+  cout << "Enter number to set bit within: " ;
   cin >> number;
 
   cout << "What bit number do you want? ";
@@ -16,7 +16,7 @@ int main(int argc, char **argv)
   cout << "Number you gave is:"
        << std::bitset<32>(number) << endl;
 
-  // build a mask to pick out bit we want.
+  // build a mask to set bit we want.
   unsigned int mask =1;
 
   // left shift 1 bit into position we want,
@@ -26,17 +26,15 @@ int main(int argc, char **argv)
   cout << "Your mask will be: "
        << std::bitset<32>(mask) << endl;
 
-  // calculate logical and of mask and number
-  unsigned int logicalAnd = number & mask; 
+  // calculate logical or of mask and number
+  unsigned int logicalOr = number | mask; 
 
-  cout << "Your l-and will be:"
-       << std::bitset<32>(logicalAnd) << endl;
+  cout << "Your l-or will be: "
+       << std::bitset<32>(logicalOr) << endl;
 
-  // "un"shift (i.e. right shift) anded result
-  // to get bit value back ...
-  unsigned int bitValue = logicalAnd >> pos;
-
-  cout << "Your bit value:" << bitValue << endl;
+  number = logicalOr;
+  cout << "Number is now :    "
+       << std::bitset<32>(number) << endl;
   
   return 0;
 }
