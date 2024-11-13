@@ -1,0 +1,35 @@
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+double getRandomDouble(double min, double max)
+{
+  double zeroToOne = ((double) rand()) / RAND_MAX;
+  double scaled = zerToOne * (max-min);
+  double based = min + scaled;
+
+  return based;
+}
+
+int main(int argc, char *argv[])
+{
+  if (argc!=2)
+    {
+      cerr << "USAGE: " << argv[0] << " <num-darts>" << endl;
+      return 1;
+    }
+
+  unsigned int nDarts, nHits;
+
+  nDarts = stoi(argv[1]);
+  nHits=0;
+
+  for (int i=0; i< nDarts; i++)
+    {
+      double x=;
+      double y=;
+
+    }
+  
+}
